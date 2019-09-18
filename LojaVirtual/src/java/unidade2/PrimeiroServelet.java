@@ -29,8 +29,12 @@ public class PrimeiroServelet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    private int acessos = 0;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        acessos ++;
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -39,7 +43,7 @@ public class PrimeiroServelet extends HttpServlet {
             out.println("<BODY>");
             out.println("Esta é a ");
             out.println(this.getClass());
-            out.println(" usando o metodo GET");
+            out.println(" usando o metodo GET, com o numero de acessos = " + acessos);
             out.println("</Body>");
             out.println("</HTML>");
             out.flush();
